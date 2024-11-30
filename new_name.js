@@ -565,7 +565,7 @@ bot.onText(/\/start/, async (msg) => {
 
     const message = await bot.sendMessage(chatId, 
         `Привет! Я помогу тебе побороть напряжение, тревогу, стресс и другие неприятные симптомы!
-        Чтобы бот эффективно подобрал технику релаксации, необходимо пройти несколько тестов`, {
+Чтобы бот эффективно подобрал технику релаксации, необходимо пройти несколько тестов`, {
         reply_markup: {
             inline_keyboard: keyboard
         }
@@ -886,6 +886,7 @@ async function analyzeAllTestsAndSendResults(chatId) {
         context += `Возраст: ${userProfile.age}\n`;
         context += `Пол: ${userProfile.gender === 'male' ? 'мужской' : 'женский'}\n`;
         context += `Принимает медикаменты: ${userProfile.taking_meds === 'yes' ? 'да' : 'нет'}\n`;
+        context += `Предложи 3 наиболее подходящие техники релаксации\n`;
         if (userProfile.taking_meds === 'yes') {
             context += `Препараты: ${userProfile.meds_details}\n`;
         }
@@ -1095,21 +1096,21 @@ async function analyzeAndSendResults(chatId, answers, testNumber) {
 function getTestSpecificInstructions(testNumber) {
     let instructions = `На основе этих данных:\n`;
     instructions += `1. Оцени психоэмоциональное состояние пользователя\n`;
-    instructions += `2. Предложи 3 наиболее подходящие техники релаксации\n`;
-    instructions += `3. Дай индивидуальные рекомендации по улучшению состояния\n`;
+    // instructions += `2. Предложи 3 наиболее подходящие техники релаксации\n`;
+    instructions += `2. Дай индивидуальные рекомендации по улучшению состояния\n`;
 
     switch(testNumber) {
         case 'test1':
-            instructions += `4. Обрати особое внимание на общий уровень тревожности\n`;
+            instructions += `3. Обрати особое внимание на общий уровень тревожности\n`;
             break;
         case 'test2':
-            instructions += `4. Сделай акцент на социальное взаимодействие\n`;
+            instructions += `3. Сделай акцент на социальное взаимодействие\n`;
             break;
         case 'test3':
-            instructions += `4. Проанализируй физическое состояние и качество сна\n`;
+            instructions += `3. Проанализируй физическое состояние и качество сна\n`;
             break;
         case 'test4':
-            instructions += `4. Оцени способность к самоорганизации\n`;
+            instructions += `3. Оцени способность к самоорганизации\n`;
             break;
     }
 
