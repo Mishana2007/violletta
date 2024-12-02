@@ -919,15 +919,15 @@ async function analyzeAllTestsAndSendResults(chatId) {
                         : test.options;
 
                 if (!questionOptions || questionOptions.length === 0) {
-                    context += `Ответ: Не указано (ошибка в конфигурации теста)\n\n`;
+                    // context += `Ответ: Не указано (ошибка в конфигурации теста)\n\n`;
                     return;
                 }
 
                 if (test.type === 'binary') {
-                    context += `Ответ: ${testAnswers[qIndex] === 'yes' ? 'Да' : 'Нет'}\n\n`;
+                    // context += `Ответ: ${testAnswers[qIndex] === 'yes' ? 'Да' : 'Нет'}\n\n`;
                 } else {
                     const option = questionOptions.find(opt => String(opt.value) === String(testAnswers[qIndex]));
-                    context += `Ответ: ${option ? option.text : 'Не указано'}\n\n`;
+                    // context += `Ответ: ${option ? option.text : 'Не указано'}\n\n`;
                 }
             });
 
@@ -1097,22 +1097,22 @@ function getTestSpecificInstructions(testNumber) {
     let instructions = `На основе этих данных:\n`;
     instructions += `1. Оцени психоэмоциональное состояние пользователя\n`;
     // instructions += `2. Предложи 3 наиболее подходящие техники релаксации\n`;
-    instructions += `2. Дай индивидуальные рекомендации по улучшению состояния\n`;
+    // instructions += `2. Дай индивидуальные рекомендации по улучшению состояния\n`;
 
-    switch(testNumber) {
-        case 'test1':
-            instructions += `3. Обрати особое внимание на общий уровень тревожности\n`;
-            break;
-        case 'test2':
-            instructions += `3. Сделай акцент на социальное взаимодействие\n`;
-            break;
-        case 'test3':
-            instructions += `3. Проанализируй физическое состояние и качество сна\n`;
-            break;
-        case 'test4':
-            instructions += `3. Оцени способность к самоорганизации\n`;
-            break;
-    }
+    // switch(testNumber) {
+    //     case 'test1':
+    //         instructions += `3. Обрати особое внимание на общий уровень тревожности\n`;
+    //         break;
+    //     case 'test2':
+    //         instructions += `3. Сделай акцент на социальное взаимодействие\n`;
+    //         break;
+    //     case 'test3':
+    //         instructions += `3. Проанализируй физическое состояние и качество сна\n`;
+    //         break;
+    //     case 'test4':
+    //         instructions += `3. Оцени способность к самоорганизации\n`;
+    //         break;
+    // }
 
     return instructions;
 }

@@ -1,5 +1,5 @@
 {
-  "name": "q.js",
+  "name": "bot.js",
   "version": "1.0.0",
   "main": "bot.js",
   "scripts": {
@@ -9,13 +9,16 @@
   "license": "ISC",
   "dependencies": {
     "@google/generative-ai": "^0.21.0",
+    "axios": "^1.7.8",
     "dotenv": "^16.4.5",
     "exceljs": "^4.4.0",
     "fs": "^0.0.1-security",
+    "jsdom": "^25.0.1",
     "node-fetch": "^2.7.0",
     "node-telegram-bot-api": "^0.66.0",
     "openai": "^4.72.0",
     "path": "^0.12.7",
+    "puppeteer": "^23.9.0",
     "sqlite3": "^5.1.7",
     "telegraf": "^4.16.3"
   },
