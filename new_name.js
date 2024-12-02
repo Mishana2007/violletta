@@ -1076,7 +1076,7 @@ async function analyzeAndSendResults(chatId, answers, testNumber) {
             model: "gpt-4o-mini",
             messages: [{ role: "user", content: context }],
             temperature: 0.7,
-            max_tokens: 1000
+            max_tokens: 500
         });
 
         const analysis = completion.choices[0].message.content;
@@ -1095,7 +1095,7 @@ async function analyzeAndSendResults(chatId, answers, testNumber) {
 // 16. Функция получения специфических инструкций для каждого теста
 function getTestSpecificInstructions(testNumber) {
     let instructions = `На основе этих данных:\n`;
-    instructions += `1. Оцени психоэмоциональное состояние пользователя\n`;
+    instructions += ` Оцени психоэмоциональное состояние пользователя, напиши только один пункт. что была только оценка \n`;
     // instructions += `2. Предложи 3 наиболее подходящие техники релаксации\n`;
     // instructions += `2. Дай индивидуальные рекомендации по улучшению состояния\n`;
 
